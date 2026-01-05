@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-50;
+  }
+}
+
+/* Ensure bullet points are visible in rendered content */
+.resume-page ul,
+.resume-page ol {
+  list-style-position: outside;
+  padding-left: 20px;
+}
+
+.resume-page ul {
+  list-style-type: disc;
+}
+
+.resume-page ol {
+  list-style-type: decimal;
+}
+
+.resume-page li {
+  display: list-item;
+  margin-bottom: 2px;
+  font-size: inherit !important;
+  color: #000000 !important;
+}
+
+/* Ensure all text inside list items uses the correct font size and color */
+.resume-page li * {
+  font-size: inherit !important;
+  color: #000000 !important;
+}
+
+.resume-page li p {
+  font-size: inherit !important;
+  color: #000000 !important;
+  margin: 0;
+  padding: 0;
+}
+
+.resume-page li span {
+  font-size: inherit !important;
+  color: #000000 !important;
+}
+
+/* Style links in resume - blue is ATS-friendly and standard */
+.resume-page a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.resume-page a:hover {
+  text-decoration: underline;
+}
+
+/* For print, ensure links are blue and underlined */
+@media print {
+  .resume-page a {
+    color: #2563eb !important;
+    text-decoration: underline !important;
+  }
+}
+
+/* Print styles - simplified, only for browser print fallback */
+@media print {
+  @page {
+    size: letter;
+    margin: 0;
+  }
+  
+  header, button, nav, .no-print {
+    display: none !important;
+  }
+  
+  #resume-container {
+    display: block !important;
+  }
+  
+  .resume-page {
+    margin: 0 !important;
+    box-shadow: none !important;
+  }
+  
+  .resume-page:last-child {
+    page-break-after: auto;
+  }
+  
+  /* Ensure header is visible and not cropped */
+  .resume-page > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+  
+  .resume-page header {
+    display: block !important;
+    width: 100% !important;
+    margin-bottom: 1rem !important;
+    padding-bottom: 0.5rem !important;
+    overflow: visible !important;
+  }
+  
+  /* Prevent breaking within sections */
+  section {
+    page-break-inside: avoid;
+  }
+  
+  /* Allow breaking between items in lists */
+  ul, ol {
+    page-break-inside: auto;
+  }
+  
+  li {
+    page-break-inside: avoid;
+  }
+  
+  /* Ensure list items have correct font size and color in print */
+  .resume-page ul,
+  .resume-page ol {
+    font-size: inherit !important;
+    color: #000000 !important;
+  }
+  
+  .resume-page li {
+    font-size: inherit !important;
+    color: #000000 !important;
+  }
+  
+  .resume-page li * {
+    font-size: inherit !important;
+    color: #000000 !important;
+  }
+  
+  .resume-page li p {
+    font-size: inherit !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .resume-page li span {
+    font-size: inherit !important;
+    color: #000000 !important;
+  }
+  
+  /* Remove scrollbars */
+  ::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+  
+  * {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+}
+
